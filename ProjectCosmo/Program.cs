@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 
 namespace ProjectCosmo
 {
@@ -6,7 +7,7 @@ namespace ProjectCosmo
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Insert input");
+            Console.WriteLine("Insert input by kebab case");
             string userInput = Console.ReadLine();
 
             //SubString(userInput);
@@ -15,8 +16,40 @@ namespace ProjectCosmo
             // AlterTextCase(userInput);
             //AlterTextCase(userInput);
             //Split(userInput);
-            CheckString(userInput);
+            //CheckString(userInput);
+
+            Console.WriteLine(ChangeFromKebabCaseToCamelCase(userInput));
         }
+
+        //kebab case
+        //some-variable-name
+
+        //camel case
+        //someVarsiableName
+
+
+        static string ChangeFromKebabCaseToCamelCase(string input)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            for (int i = 0; i < input.Length; i++)
+            {
+                char currentChart = input[i];
+
+                if(currentChart != '-')
+                {
+                    sb.Append(currentChart);
+                }
+                else
+                {
+                    char nextChar = input[i + 1];
+                    sb.Append(char.ToUpper(nextChar));
+                    i++;
+                };
+            }
+            return sb.ToString();
+        }
+
 
         static void SubString(string userInput)
         {
