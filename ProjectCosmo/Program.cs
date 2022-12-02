@@ -13,6 +13,9 @@ namespace ProjectCosmo
             //Replace(userInput);
             //Modify(userInput);
             // AlterTextCase(userInput);
+            //AlterTextCase(userInput);
+            //Split(userInput);
+            CheckString(userInput);
         }
 
         static void SubString(string userInput)
@@ -43,9 +46,32 @@ namespace ProjectCosmo
             Console.WriteLine(insertString);
             Console.WriteLine(trimedString);
         }
-        static void AlterTextCase()
+        static void AlterTextCase(string userInput)
         {
+            string uperCased = userInput.ToUpper();
+            string lowerCased = userInput.ToLower();
 
+            Console.WriteLine(uperCased);
+            Console.WriteLine(lowerCased);
+        }
+        static void Split(string userInput)
+        {
+            string[] inputNames = userInput.Split(" ");
+            string firstName = inputNames[0];
+            string lastName = inputNames[inputNames.Length - 1];
+
+            Console.WriteLine($"Hello {firstName} {lastName}");
+        }
+        static void CheckString(string userInput)
+        {
+            bool isTextFile = userInput.EndsWith(".txt");
+            bool startWithString = userInput.StartsWith("doc-");
+
+            bool containtText = userInput.Contains("text", StringComparison.CurrentCultureIgnoreCase); //litery pisane z małej i duzej
+
+            Console.WriteLine($"is tectFile: {isTextFile}");
+            Console.WriteLine($"is startWithDoc: {startWithString}");
+            Console.WriteLine($"containts: {containtText}");
         }
     }
 }
